@@ -1,0 +1,61 @@
+<app-header></app-header>
+
+<nav class="navbar navbar-dark bg-custom-2">
+  <a class="navbar-brand" href="#">
+    <h2>Glossary of Terms/ Dictionary</h2>
+  </a>
+  <ul class="navbar-nav">
+    <li class="nav-item active">
+      <a class="nav-link" routerLink="home" routerLinkActive="active">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="prod" routerLinkActive="active">Synonyms</a> 
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="glossary" routerLinkActive="active">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="login" routerLinkActive="active">Login</a> 
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="register" routerLinkActive="active">Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="reset-password" routerLinkActive="active">Reset password</a>
+          </li>
+        </ul>
+</nav>
+<br>
+<div *ngIf="showme; then info; else bye" class="container"> This is about Dictionary </div>
+  <ng-template #info>
+  <div> 
+    <h3 style = color:midnightblue><i>A book or electronic resource that lists the words of a language (typically in alphabetical order) and gives their meaning, or gives the equivalent words in a different language, often also providing information about pronunciation, origin, and usage </i></h3>
+  </div>
+  </ng-template>
+
+  <ng-template #bye>
+  <div class="container">
+    <h3><i>The simplest dictionary, a defining dictionary, provides a core glossary of the simplest meanings of the simplest concepts. From these, other concepts can be explained and defined, in particular for those who are first learning a language.</i></h3>
+  </div>
+  </ng-template>
+
+<router-outlet> </router-outlet>
+
+<div class="container">
+<div *ngFor="let item of user">
+  <app-user [item]="item"> </app-user>
+</div>
+</div>
+
+<hr><br>
+
+
+<div class="container">
+<h4>{{msg}}</h4>
+<label>Submit : <input type ="text"[(ngModel)]='txt'/> </label>
+<h4 style="text-align:center"> Hello, Today's word of the day  is {{txt}}</h4>
+</div>
+
+
+
+<div> <app-footer></app-footer> </div>
